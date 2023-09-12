@@ -8,7 +8,7 @@ import rehypeRaw from "rehype-raw";
 import uuid from 'react-uuid';
 
 import styles from "./Chat.module.css";
-import Azure from "../../assets/Azure.svg";
+import Mantis from "../../assets/Mantis_logo.svg";
 
 import {
     ChatMessage,
@@ -124,7 +124,8 @@ const Chat = () => {
                 setShowLoadingMessage(false);
                 abortFuncs.current = abortFuncs.current.filter(a => a !== abortController);
                 return;
-            }else{
+            } else {
+                console.log(userMessage);
                 conversation.messages.push(userMessage);
             }
         }
@@ -226,7 +227,8 @@ const Chat = () => {
                 setShowLoadingMessage(false);
                 abortFuncs.current = abortFuncs.current.filter(a => a !== abortController);
                 return;
-            }else{
+            } else {
+                console.log(userMessage);
                 conversation.messages.push(userMessage);
                 request = {
                     messages: [...conversation.messages.filter((answer) => answer.role !== "error")]
@@ -540,7 +542,7 @@ const Chat = () => {
                         {!messages || messages.length < 1 ? (
                             <Stack className={styles.chatEmptyState}>
                                 <img
-                                    src={Azure}
+                                    src={Mantis}
                                     className={styles.chatIcon}
                                     aria-hidden="true"
                                 />
